@@ -134,7 +134,7 @@ def main(matrix, chip_uid, chip_move):
     old_matrix = matrix #выводим если пользователь отказался ходить
     
     if type(chip_move) == int: #если в качестве передвижения мы передаем целое число (номер строки в database_movements)
-        connection = sqlite3.connect('Realno_game/database_movements.db')
+        connection = sqlite3.connect('Scripts/database_movements.db')
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM movement WHERE ROWID=?", (chip_move,))
         row = cursor.fetchone()
@@ -155,5 +155,5 @@ def main(matrix, chip_uid, chip_move):
     
         return {"matrix": np.array(matrix), "crossings": crossings_count}
 
-print(main(playing_arena, 1, 2))
-print(playing_arena)
+# print(main(playing_arena, 1, 2))
+# print(playing_arena)
